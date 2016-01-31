@@ -8,7 +8,7 @@ import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class MainFrame
+public class MainFrame extends JFrame
 {
     final static boolean shouldFill = true; //allows buttons/ components to auto resize themselves
     final static boolean shouldWeightX = true; //keeps components equal "weights" on window resizing
@@ -113,6 +113,7 @@ public class MainFrame
 
         //Display the window
         frame.pack();
+        frame.setSize(500, 500);
         frame.setVisible(true);
     }
 
