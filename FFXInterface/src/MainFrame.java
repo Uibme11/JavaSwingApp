@@ -45,13 +45,22 @@ public class MainFrame extends JFrame
         c.gridy = 0;
         pane.add(button, c);
 
-        button = new JButton("Possible JTabbedPane Placement"); //This will be a great place to add a JPanel
+//        button = new JButton("Possible JTabbedPane Placement"); //This will be a great place to add a JPanel
+
+//        pane.add(button, c);
+        
+        WelcomePanel panel = new WelcomePanel();
         c.ipady = 60; //make this component tall
         c.weightx = 0.5; //seems to have no affect
-        c.gridwidth = 1; //determines how many columns wide
-        c.gridx = 1; //determines row
-        c.gridy = 2; //determines column
-        pane.add(button, c);
+        c.gridwidth = 3; //determines how many columns wide
+        c.gridheight = 3;
+        c.gridx = 0; //determines row
+        c.gridy = 1; //determines column'
+        c.fill = GridBagConstraints.BOTH;
+        c.anchor = GridBagConstraints.FIRST_LINE_START; //anchor at the end of the last line
+        pane.add(panel, c);
+        
+        c.fill = GridBagConstraints.HORIZONTAL;
 
         button = new JButton("Next ->");
         c.ipady = 0;       //reset to default
@@ -62,6 +71,7 @@ public class MainFrame extends JFrame
         c.gridwidth = 1;   //1 column wide
         c.gridy = 2;       //third row
         pane.add(button, c);
+        pane.setVisible(true);
         
       //Add action listener to Next Button
         button.addActionListener(new ActionListener() {
