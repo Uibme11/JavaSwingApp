@@ -18,6 +18,7 @@ public class WelcomePanel extends JPanel{
 		
 		// setting panel layout, 1 column and three rows
 		layout = new GridLayout(3, 1, 4, 4);
+		setLayout(layout);
 		
 		// row one, user information title
 		title = new JTextArea();
