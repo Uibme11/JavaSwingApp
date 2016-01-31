@@ -49,7 +49,7 @@ public class MainFrame extends JFrame
 
 //        pane.add(button, c);
         
-        WelcomePanel panel = new WelcomePanel();
+        FinalPanel panel = new FinalPanel();
         c.ipady = 60; //make this component tall
         c.weightx = 0.5; //seems to have no affect
         c.gridwidth = 3; //determines how many columns wide
