@@ -21,8 +21,7 @@ public class CommandPanel extends JPanel{
 	{
 		super();
 		JButton button;
-		setBackground(Color.WHITE);
-		
+		setBackground(Color.WHITE);	
 		
 		//Setting Panel Layout
 		layout = new GridLayout(2,1,5,5);
