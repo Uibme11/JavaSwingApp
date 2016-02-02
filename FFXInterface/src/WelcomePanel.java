@@ -71,5 +71,15 @@ public class WelcomePanel extends JPanel{
 		add(jobNameField);	
 	}
 	
+	public String getEmail()
+	{
+		return emailField.getText();
+	}
+	
+	public String getJobName()
+	{
+		return jobNameField.getText();
+	}
+	
 
 }

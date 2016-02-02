@@ -3,6 +3,8 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+
+import java.awt.Color;
 import java.awt.Font;
 
 
@@ -12,17 +14,18 @@ public class CommandPanel extends JPanel{
 	private JTextArea title;
 	private GridLayout layout;
 	private String[] FFXCommand = { "[FFX Command]", "Minimize", "Rotomer Optimize"};
-	private JComboBox CommandSelect= new JComboBox(FFXCommand);
+	private JComboBox commandSelect= new JComboBox(FFXCommand);
 	
 
 	public CommandPanel()
 	{
 		super();
 		JButton button;
+		setBackground(Color.WHITE);
 		
 		
 		//Setting Panel Layout
-		layout = new GridLayout(2,2,5,5);
+		layout = new GridLayout(2,1,5,5);
 		setLayout(layout);
 		
 		//Select Command Label
@@ -33,9 +36,9 @@ public class CommandPanel extends JPanel{
 		add(title);	
 		
 		//Add Drop Down
-		CommandSelect.setSelectedIndex(0);
-		CommandSelect.setFont(new Font("Calibri", Font.PLAIN, 16));
-		add(CommandSelect);
+		commandSelect.setSelectedIndex(0);
+		commandSelect.setFont(new Font("Calibri", Font.PLAIN, 16));
+		add(commandSelect);
 	
 		
 		//Advanced Options Button
@@ -44,6 +47,11 @@ public class CommandPanel extends JPanel{
 		add(button);
 		
 
+	}
+	
+	public String getCommand()
+	{
+		return commandSelect.getName();
 	}
 	
 }

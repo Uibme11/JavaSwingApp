@@ -10,7 +10,7 @@ public class FrameDriver {
 		
 		FrameContent frame = new FrameContent();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(500, 500);
+		frame.setSize(600, 700);
 		frame.setVisible(true);
 		
 	}

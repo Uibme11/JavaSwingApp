@@ -47,7 +47,7 @@ public class FrameContent extends JFrame{
 
 		//	        FinalPanel panel = new FinalPanel();
 		// TO TEST: Change panel type to the class you created
-		CommandPanel panel = new CommandPanel();
+		FinalPanel panel = new FinalPanel();
 		c.ipady = 60; //make this component tall
 		c.weightx = 0.5; //seems to have no affect
 		c.gridwidth = 3; //determines how many columns wide

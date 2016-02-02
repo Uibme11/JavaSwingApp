@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 
@@ -25,9 +26,10 @@ public class OptionsPanel extends JPanel{
 	public OptionsPanel()
 	{
 		super();
+		setBackground(Color.WHITE);
 		
 		// setting panel layout, 3 column and 5 rows
-		layout = new GridLayout(5, 3, 5, 0);
+		layout = new GridLayout(9, 1, 0, 5);
 		setLayout(layout);
 		
 		// row two, user information title
@@ -91,6 +93,26 @@ public class OptionsPanel extends JPanel{
 		aminoChangeField.setFont(new Font("Calibri", Font.PLAIN, 18));
 		add(aminoChangeField);
 			
+	}
+	
+	public String getAminoAcidPosition()
+	{
+		return aminoAcidField.getText();
+	}
+	
+	public String getChainIDField()
+	{
+		return chainIDField.getText();
+	}
+	
+	public String getAminoAcidChange()
+	{
+		return aminoChangeField.getText();
+	}
+	
+	public String getStructure()
+	{
+		return structuresDropdown.getName();
 	}
 	
 
