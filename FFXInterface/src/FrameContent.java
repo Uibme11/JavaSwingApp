@@ -20,6 +20,7 @@ public class FrameContent extends JFrame{
 	private JButton next = new JButton("Next");
 	private JButton back = new JButton("Back");
 	private JPanel buttons = new JPanel();
+	private int windowCounter = 0;
 			
 	public FrameContent() 
 	{
@@ -51,8 +52,23 @@ public class FrameContent extends JFrame{
 
 			public void actionPerformed(ActionEvent e)
 			{
-				//Execute when button is pressed
-				System.out.println("You clicked 'Next' the button"); //good for testing until we have other GUI's made to link buttons to
+				switch(windowCounter)
+				{
+					case 0: 
+						System.out.printf("job name: %s \nemail: %s\n", panel1.getJobName(), panel1.getEmail());
+						tabbedPane.setSelectedComponent(panel2);
+						windowCounter++;
+						break;
+						
+					case 1:
+						System.out.printf("command: %s \n", panel2.getCommand());
+						tabbedPane.setSelectedComponent(panel3);
+						windowCounter++;
+						break;
+						
+					default:
+						break;
+				}
 			}
 		});
 
