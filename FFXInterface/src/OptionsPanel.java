@@ -100,7 +100,7 @@ public class OptionsPanel extends JPanel{
 		return aminoAcidField.getText();
 	}
 	
-	public String getChainIDField()
+	public String getChainID()
 	{
 		return chainIDField.getText();
 	}
