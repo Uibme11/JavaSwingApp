@@ -98,8 +98,33 @@ public class FrameContent extends JFrame{
 
 			public void actionPerformed(ActionEvent e)
 			{
-				//Execute when button is pressed
-				System.out.println("You clicked 'Previous' the button"); //good for testing until we have other GUI's made to link buttons to
+				windowCounter = tabbedPane.getSelectedIndex();
+				
+				switch(windowCounter)
+				{
+					case 0:
+						break;
+					
+					case 1:
+						tabbedPane.setSelectedComponent(panel1);
+						break;
+					
+					case 2:
+						tabbedPane.setSelectedComponent(panel2);
+						break;
+						
+					case 3:
+						tabbedPane.setSelectedComponent(panel3);
+						break;
+						
+					case 4:
+						tabbedPane.setSelectedComponent(panel1);
+						break;
+						
+					default:
+						break;
+					
+				}
 			}
 		});
 	}
