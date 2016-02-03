@@ -67,7 +67,9 @@ public class FrameContent extends JFrame{
 					
 					case 2:
 						System.out.printf("Amino Acid Position: %s \nAmino Acid Chain: \nAmino Acid Change: \nStructure: \n", panel3.getAminoAcidPosition(), panel3.getChainID(), panel3.getAminoAcidChange(), panel3.getStructure());
-						panel4.setSummaryText("Summary goes here\n");
+						panel4.setSummaryText("Name: " + panel1.getJobName() + "\nEmail: " + panel1.getEmail() + "\nCommand: " + panel2.getCommand() + "\nAmino Acid Position: " + panel3.getAminoAcidPosition() + "\nAmino Acid Chain: " 
+													+ panel3.getChainID() + "\nAmino Acid Change: " + panel3.getAminoAcidChange());
+														
 						tabbedPane.setSelectedComponent(panel4);
 						next.setText("Submit");
 						break;
