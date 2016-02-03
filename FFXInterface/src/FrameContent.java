@@ -15,7 +15,7 @@ public class FrameContent extends JFrame{
 	private OptionsPanel panel3 = new OptionsPanel();
 	private SummaryPanel panel4 = new SummaryPanel();
 	private FinalPanel panel5 = new FinalPanel();
-	private JButton next = new JButton("Next");
+	private JButton next = new JButton("Save and continue");
 	private JButton back = new JButton("Back");
 	private JPanel buttons = new JPanel();
 	private int windowCounter = 0;
@@ -116,11 +116,22 @@ public class FrameContent extends JFrame{
 						break;
 						
 					case 3:
-						tabbedPane.setSelectedComponent(panel3);
+						if(!finalWindow)
+						{
+							tabbedPane.setSelectedComponent(panel3);
+							next.setText("Save and continue");
+						}
+						else
+						{
+							tabbedPane.setSelectedComponent(panel1);
+							panel5.setVisible(false);
+							next.setText("Save and continue");
+							back.setText("Back");
+						}
 						break;
 						
 					case 4:
-						tabbedPane.setSelectedComponent(panel1);
+						
 						break;
 						
 					default:
