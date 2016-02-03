@@ -4,13 +4,16 @@ import java.awt.GridLayout;
 
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
+import javax.swing.SwingConstants;
+import java.awt.Color;
 public class OptionsPanel extends JPanel{
 	
-	private JTextArea title;
+	private Color c = new Color (235, 240, 255);
+	private JLabel title;
 	private JTextArea dropDownLabel;
 	private JTextArea aminoAcidLabel;
 	private JTextField aminoAcidField;
@@ -18,8 +21,9 @@ public class OptionsPanel extends JPanel{
 	private JTextField chainIDField;
 	private JTextArea aminoChangeLabel;
 	private JTextField aminoChangeField;
+	private JTextArea blankCell; 
 	private GridLayout layout;
-	private String[] FFXStructures = { "[select a structure]", "Bird", "Cat", "Dog", "Rabbit", "Pig" };
+	private String[] FFXStructures = { "[select a structure]", "  Bird", "  Cat", "  Dog", "  Rabbit", "  Pig" };
 	private JComboBox structuresDropdown= new JComboBox(FFXStructures);
 
 	
@@ -29,37 +33,37 @@ public class OptionsPanel extends JPanel{
 		setBackground(Color.WHITE);
 		
 		// setting panel layout, 3 column and 5 rows
-		layout = new GridLayout(9, 1, 0, 5);
+		layout = new GridLayout(10, 1, 0, 5);
 		setLayout(layout);
 		
 		// row two, user information title
 		dropDownLabel = new JTextArea();
-		dropDownLabel.setText("Choose FFX Structure\n");
+		dropDownLabel.setText("\nChoose FFX Structure\n");
 		dropDownLabel.setEditable(false);
 		dropDownLabel.setFont(new Font("Calibri", Font.PLAIN, 18));
 		add(dropDownLabel);
 		
 		// add drop down menu
 		structuresDropdown.setSelectedIndex(0);
+		structuresDropdown.setFont (new Font("Calibri", Font.PLAIN, 18));
+		structuresDropdown.setBackground(c);
 		add(structuresDropdown);
 		
 		// row two, user information title
-		title = new JTextArea();
-		title.setText("Variant Information\n");
-		title.setEditable(false);
-		title.setFont(new Font("Calibri", Font.BOLD, 18));
+		title = new JLabel("\n\n\nVariant Information",SwingConstants.CENTER);
+		title.setFont(new Font("Calibri", Font.BOLD, 20));
 		add(title);
 		
 		// row two, email address
 		aminoAcidLabel = new JTextArea();
-		aminoAcidLabel.setText("Amino Acid Position");
+		aminoAcidLabel.setText("\n\n  Amino Acid Position");
 		aminoAcidLabel.setEditable(false);
 		aminoAcidLabel.setFont(new Font("Calibri", Font.PLAIN, 18));
 		add(aminoAcidLabel);
 		
 		
 		// row two, email field
-		aminoAcidField = new JTextField("[number]");
+		aminoAcidField = new JTextField("  [number]");
 		aminoAcidField.setBounds(30, 30, 40, 30);
 		aminoAcidField.setEditable(true);
 		aminoAcidField.setFont(new Font("Calibri", Font.PLAIN, 18));
@@ -67,13 +71,13 @@ public class OptionsPanel extends JPanel{
 		
 		// row two, email address
 		chainIDLabel = new JTextArea();
-		chainIDLabel.setText("Chain ID");
+		chainIDLabel.setText("\n\n  Chain ID");
 		chainIDLabel.setEditable(false);
 		chainIDLabel.setFont(new Font("Calibri", Font.PLAIN, 18));
 		add(chainIDLabel);
 		
 		// row two, email field
-		chainIDField = new JTextField("[chain ID]");
+		chainIDField = new JTextField("  [chain ID]");
 		chainIDField.setBounds(30, 30, 40, 30);
 		chainIDField.setEditable(true);
 		chainIDField.setFont(new Font("Calibri", Font.PLAIN, 18));
@@ -81,17 +85,23 @@ public class OptionsPanel extends JPanel{
 		
 		// row two, email address
 		aminoChangeLabel = new JTextArea();
-		aminoChangeLabel.setText("Amino Acid Change");
+		aminoChangeLabel.setText("\n\n  Amino Acid Change");
 		aminoChangeLabel.setEditable(false);
 		aminoChangeLabel.setFont(new Font("Calibri", Font.PLAIN, 18));
 		add(aminoChangeLabel);
 		
 		// row two, email field
-		aminoChangeField = new JTextField("[3 letter name]");
+		aminoChangeField = new JTextField("  [3 letter name]");
 		aminoChangeField.setBounds(30, 30, 40, 30);
 		aminoChangeField.setEditable(true);
 		aminoChangeField.setFont(new Font("Calibri", Font.PLAIN, 18));
 		add(aminoChangeField);
+		
+		// row two, user information title
+				blankCell = new JTextArea();
+				blankCell.setText("\n");
+				blankCell.setEditable(false);
+				add(blankCell);
 			
 	}
 	
