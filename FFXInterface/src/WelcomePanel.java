@@ -60,7 +60,7 @@ public class WelcomePanel extends JPanel{
 		//row five, job name
 		jobName = new JTextArea();
 		jobName.setText(" Job Name:");
-		jobName.setEditable(true);
+		jobName.setEditable(false);
 		jobName.setFont(new Font("Calibri", Font.PLAIN, 18));
 		add(jobName);
 		

@@ -11,6 +11,7 @@ public class SummaryPanel extends JPanel{
 	{
 		super();
 		setBackground(Color.WHITE);
+		summaryText.setEditable(false);
 		
 		add(summaryText);
 		

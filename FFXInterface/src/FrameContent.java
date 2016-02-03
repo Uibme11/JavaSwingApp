@@ -56,17 +56,14 @@ public class FrameContent extends JFrame{
 				switch(windowCounter)
 				{
 					case 0: 
-						System.out.printf("job name: %s \nemail: %s\n", panel1.getJobName(), panel1.getEmail());
 						tabbedPane.setSelectedComponent(panel2);
 						break;
 						
 					case 1:
-						System.out.printf("command: %s \n", panel2.getCommand());
 						tabbedPane.setSelectedComponent(panel3);
 						break;
 					
 					case 2:
-						System.out.printf("Amino Acid Position: %s \nAmino Acid Chain: \nAmino Acid Change: \nStructure: \n", panel3.getAminoAcidPosition(), panel3.getChainID(), panel3.getAminoAcidChange(), panel3.getStructure());
 						panel4.setSummaryText("Name: " + panel1.getJobName() + "\nEmail: " + panel1.getEmail() + "\nCommand: " + panel2.getCommand() + "\nAmino Acid Position: " + panel3.getAminoAcidPosition() + "\nAmino Acid Chain: " 
 													+ panel3.getChainID() + "\nAmino Acid Change: " + panel3.getAminoAcidChange());
 														
@@ -77,7 +74,6 @@ public class FrameContent extends JFrame{
 					case 3:
 						if(!finalWindow)
 						{
-							System.out.printf("Summary Page\n");
 							add(panel5, BorderLayout.CENTER);
 							back.setText("Submit another job");
 							next.setText("Exit");
