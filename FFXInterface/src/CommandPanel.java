@@ -108,9 +108,9 @@ public class CommandPanel extends JPanel{
 
 	}
 	
-	public String getCommand()
+	public int getCommandIndex()
 	{
-		return commandSelect.getName();
+		return commandSelect.getSelectedIndex();
 	}
 	
 }

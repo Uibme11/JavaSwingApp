@@ -20,6 +20,8 @@ public class FrameContent extends JFrame{
 	private JPanel buttons = new JPanel();
 	private int windowCounter = 0;
 	private boolean finalWindow = false;
+	private String structure;
+	private String command;
 			
 	public FrameContent() 
 	{
@@ -64,8 +66,29 @@ public class FrameContent extends JFrame{
 						break;
 					
 					case 2:
-						panel4.setSummaryText("Name: " + panel1.getJobName() + "\nEmail: " + panel1.getEmail() + "\nCommand: " + panel2.getCommand() + "\nAmino Acid Position: " + panel3.getAminoAcidPosition() + "\nAmino Acid Chain: " 
-													+ panel3.getChainID() + "\nAmino Acid Change: " + panel3.getAminoAcidChange());
+						switch(panel3.getStructureIndex())
+						{
+							case 0: structure = ""; break;
+							case 1: structure = "structure1"; break;
+							case 2: structure = "structure2"; break;
+							case 3: structure = "structure3"; break;
+							case 4: structure = "structure4"; break;
+							case 5: structure = "structure5"; break;
+							default: break;
+						}
+						
+						switch(panel2.getCommandIndex())
+						{
+							case 0: command = ""; break;
+							case 1: command = "Anneal"; break;
+							case 2: command = "Energy"; break;
+							case 3: command = "MD"; break;
+							case 4: command = "Minimize"; break;
+							default: break;
+						}
+						
+						panel4.setSummaryText("\n\nName: " + panel1.getJobName() + "\n\nEmail: " + panel1.getEmail() + "\n\nCommand: " + command + "\n\nStructure: " + structure + "\n\nAmino Acid Position: " + panel3.getAminoAcidPosition() + "\n\nAmino Acid Chain: " 
+													+ panel3.getChainID() + "\n\nAmino Acid Change: " + panel3.getAminoAcidChange());
 														
 						tabbedPane.setSelectedComponent(panel4);
 						next.setText("Submit");
