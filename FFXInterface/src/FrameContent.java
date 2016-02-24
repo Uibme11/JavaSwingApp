@@ -1,5 +1,8 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -95,6 +98,28 @@ public class FrameContent extends JFrame{
 						break;
 						
 					case 3:
+						
+						String fileName = panel1.getJobName() + ".txt";
+						PrintWriter file;
+					
+						try 
+						{
+							file = new PrintWriter(fileName);
+							file.println("ffxc mutatePDB");
+							file.println("ffxc minimize");
+							file.println("ffxc rotamer");
+							file.println("ffxc minimize");
+							file.close();
+						} 
+						catch (FileNotFoundException e1) 
+						{
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						
+						
+						
+						
 						if(!finalWindow)
 						{
 							add(panel5, BorderLayout.CENTER);

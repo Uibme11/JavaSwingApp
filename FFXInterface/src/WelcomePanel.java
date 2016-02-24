@@ -24,7 +24,7 @@ public class WelcomePanel extends JPanel{
 		setBackground(Color.WHITE);
 		
 		// setting panel layout, 1 column and three rows
-		layout = new GridLayout(7 , 1, 2, 0);
+		layout = new GridLayout(7, 1, 2, 0);
 		setLayout(layout);
 		
 		// row one, user information title
@@ -43,7 +43,6 @@ public class WelcomePanel extends JPanel{
 		
 		// row three, email field
 		emailField = new JTextField();
-		emailField.setBounds(30, 30, 40, 30);
 		emailField.setEditable(true);
 		add(emailField);
 		
@@ -66,7 +65,6 @@ public class WelcomePanel extends JPanel{
 		
 		//row six, job name field
 		jobNameField = new JTextField();
-		jobNameField.setBounds(30, 30, 40, 30);
 		jobNameField.setEditable(true);
 		add(jobNameField);	
 	}
