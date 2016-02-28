@@ -99,16 +99,27 @@ public class FrameContent extends JFrame{
 						
 					case 3:
 						
-						String fileName = panel1.getJobName() + ".txt";
+						switch(panel3.getStructureIndex())
+						{
+							case 0: structure = ""; break;
+							case 1: structure = "structure1"; break;
+							case 2: structure = "structure2"; break;
+							case 3: structure = "structure3"; break;
+							case 4: structure = "structure4"; break;
+							case 5: structure = "structure5"; break;
+							default: break;
+						}
+						
+						String fileName = panel1.getJobName() + ".job";
 						PrintWriter file;
 					
 						try 
 						{
 							file = new PrintWriter(fileName);
-							file.println("ffxc mutatePDB");
-							file.println("ffxc minimize");
-							file.println("ffxc rotamer");
-							file.println("ffxc minimize");
+							file.println("ffxc mutatePDB -n " + panel3.getAminoAcidChange() + " -r " + panel3.getAminoAcidPosition() + " " + structure);
+							file.println("ffxc minimize " + structure + "_2");
+							file.println("ffxc rotamer -a 5 -bL 5 -bB 1.5 -x 1 -l 2 " + structure + "_3" );
+							file.println("ffxc minimize " + structure + "_4");
 							file.close();
 						} 
 						catch (FileNotFoundException e1) 

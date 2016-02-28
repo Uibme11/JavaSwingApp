@@ -1,0 +1,4 @@
+ffxc mutatePDB
+ffxc minimize
+ffxc rotamer
+ffxc minimize
