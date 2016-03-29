@@ -25,6 +25,11 @@ public class FrameContent extends JFrame{
 	private boolean finalWindow = false;
 	private String structure;
 	private String command;
+	private String aminoAcidTest;
+	private boolean realAminoAcid = false;
+	private String aminoAcids [] = {"ALA", "ARG", "ASN", "ASP", "CYS", "GLU", "GLN", "GLY",
+	                                          "HIS", "ILE", "LEU", "LYS", "MET", "PHE", "PRO", "SER", 
+	                                          "THR", "TYR", "TRP", "VAL"};
 			
 	public FrameContent() 
 	{
@@ -41,6 +46,7 @@ public class FrameContent extends JFrame{
 
 		tabbedPane.setBackground(Color.WHITE);
 		add(tabbedPane, BorderLayout.CENTER);
+				
 		
 		//add buttons to bottom of screen
 		buttons.setLayout(new GridLayout(1, 2, 5, 5));
@@ -61,14 +67,17 @@ public class FrameContent extends JFrame{
 				switch(windowCounter)
 				{
 					case 0: 
+						next.setText("Save and continue");
 						tabbedPane.setSelectedComponent(panel2);
 						break;
 						
 					case 1:
+						next.setText("Save and continue");
 						tabbedPane.setSelectedComponent(panel3);
 						break;
 					
 					case 2:
+						next.setText("Save and continue");
 						switch(panel3.getStructureIndex())
 						{
 							case 0: structure = ""; break;
@@ -90,11 +99,29 @@ public class FrameContent extends JFrame{
 							default: break;
 						}
 						
-						panel4.setSummaryText("\n\nName: " + panel1.getJobName() + "\n\nEmail: " + panel1.getEmail() + "\n\nCommand: " + command + "\n\nStructure: " + structure + "\n\nAmino Acid Position: " + panel3.getAminoAcidPosition() + "\n\nAmino Acid Chain: " 
-													+ panel3.getChainID() + "\n\nAmino Acid Change: " + panel3.getAminoAcidChange());
-														
-						tabbedPane.setSelectedComponent(panel4);
-						next.setText("Submit");
+						int x = 0;
+						for(x = 0; x < aminoAcids.length; x++)
+						{
+							if(panel3.getAminoAcidChange().equals(aminoAcids[x]))
+							{
+								realAminoAcid = true;
+								x = aminoAcids.length + 1;
+							}
+						}
+						
+						if(realAminoAcid)
+						{
+							panel3.removeWarning();
+							panel4.setSummaryText("\n\nName: " + panel1.getJobName() + "\n\nEmail: " + panel1.getEmail() + "\n\nCommand: " + command + "\n\nStructure: " + structure + "\n\nAmino Acid Position: " + panel3.getAminoAcidPosition() + "\n\nAmino Acid Chain: " 
+														+ panel3.getChainID() + "\n\nAmino Acid Change: " + panel3.getAminoAcidChange());
+															
+							tabbedPane.setSelectedComponent(panel4);
+							next.setText("Submit");
+						}
+						else
+						{
+							panel3.printWarning();
+						}
 						break;
 						
 					case 3:

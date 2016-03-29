@@ -23,6 +23,7 @@ public class OptionsPanel extends JPanel{
 	private JTextField aminoChangeField;
 	private JTextArea blankCell; 
 	private GridLayout layout;
+	private JTextArea aminoAcidWarning;
 	private String[] FFXStructures = { "[select a structure]", "  structure1", "  structure2", "  structure3", "  structure4", "  structure5" };
 	private JComboBox structuresDropdown= new JComboBox(FFXStructures);
 
@@ -33,7 +34,7 @@ public class OptionsPanel extends JPanel{
 		setBackground(Color.WHITE);
 		
 		// setting panel layout, 10 rows and 1 column 
-		layout = new GridLayout(10, 1, 0, 5);
+		layout = new GridLayout(11, 1, 0, 5);
 		setLayout(layout);
 		
 		// row two, user information title
@@ -56,14 +57,14 @@ public class OptionsPanel extends JPanel{
 		
 		// row two, email address
 		aminoAcidLabel = new JTextArea();
-		aminoAcidLabel.setText("\n  Amino Acid Position");
+		aminoAcidLabel.setText("\n  Amino Acid Position (residue number)");
 		aminoAcidLabel.setEditable(false);
 		aminoAcidLabel.setFont(new Font("Calibri", Font.PLAIN, 18));
 		add(aminoAcidLabel);
 		
 		
 		// row two, email field
-		aminoAcidField = new JTextField("  [number]");
+		aminoAcidField = new JTextField();
 		aminoAcidField.setBounds(20, 220, 40, 30);
 		aminoAcidField.setEditable(true);
 		aminoAcidField.setFont(new Font("Calibri", Font.PLAIN, 14));
@@ -77,7 +78,7 @@ public class OptionsPanel extends JPanel{
 		add(chainIDLabel);
 		
 		// row two, email field
-		chainIDField = new JTextField("  [chain ID]");
+		chainIDField = new JTextField();
 		chainIDField.setBounds(20, 20, 40, 30);
 		chainIDField.setEditable(true);
 		chainIDField.setFont(new Font("Calibri", Font.PLAIN, 14));
@@ -85,23 +86,29 @@ public class OptionsPanel extends JPanel{
 		
 		// row two, email address
 		aminoChangeLabel = new JTextArea();
-		aminoChangeLabel.setText("\n  Amino Acid Change");
+		aminoChangeLabel.setText("\n  Amino Acid Change (3 letter abbreviation)");
 		aminoChangeLabel.setEditable(false);
 		aminoChangeLabel.setFont(new Font("Calibri", Font.PLAIN, 18));
 		add(aminoChangeLabel);
 		
 		// row two, email field
-		aminoChangeField = new JTextField("  [3 letter name]");
+		aminoChangeField = new JTextField();
 		aminoChangeField.setBounds(20, 20, 40, 30);
 		aminoChangeField.setEditable(true);
 		aminoChangeField.setFont(new Font("Calibri", Font.PLAIN, 14));
 		add(aminoChangeField);
 		
 		// row two, user information title
-				blankCell = new JTextArea();
-				blankCell.setText("\n");
-				blankCell.setEditable(false);
-				add(blankCell);
+		blankCell = new JTextArea();
+		blankCell.setText("\n");
+		blankCell.setEditable(false);
+		add(blankCell);
+		
+		aminoAcidWarning = new JTextArea();
+		aminoAcidWarning.setText("Invalid amino acid number. \nPlease enter a valid amino acid code (three letter abbreviation, all capital letters)");
+		aminoAcidWarning.setEditable(false);
+		aminoAcidWarning.setVisible(false);
+		add(aminoAcidWarning);
 			
 	}
 	
@@ -123,6 +130,16 @@ public class OptionsPanel extends JPanel{
 	public int getStructureIndex()
 	{
 		return structuresDropdown.getSelectedIndex();
+	}
+	
+	public void printWarning()
+	{
+		aminoAcidWarning.setVisible(true);
+	}
+	
+	public void removeWarning()
+	{
+		aminoAcidWarning.setVisible(false);
 	}
 	
 
