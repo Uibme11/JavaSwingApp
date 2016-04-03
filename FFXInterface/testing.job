@@ -1,0 +1,4 @@
+ffxc mutatePDB -n ARG -r 123structure3
+ffxc minimize structure3_2
+ffxc rotamer -a 5 -bL 5 -bB 1.5 -x 1 -l 2 structure3_3
+ffxc minimize structure3_4

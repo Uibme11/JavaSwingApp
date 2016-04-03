@@ -1,0 +1,4 @@
+ffxc mutatePDB -n  -r  
+ffxc minimize _2
+ffxc rotamer -a 5 -bL 5 -bB 1.5 -x 1 -l 2 _3
+ffxc minimize _4
