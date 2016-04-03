@@ -1,0 +1,4 @@
+ffxc mutatePDB -n TRP -r 123 structure5
+ffxc minimize structure5_2
+ffxc rotamer -a 5 -bL 5 -bB 1.5 -x 1 -l 2 structure5_3
+ffxc minimize structure5_4
